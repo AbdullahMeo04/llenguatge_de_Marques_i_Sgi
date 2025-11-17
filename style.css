@@ -1,0 +1,119 @@
+/* ---- RESET BÀSIC I GLOBALS ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style: none;
+}
+
+/* ... (Selectors buits per a index.html) ... */
+/* ---- 1. HEADER I NAVEGACIÓ ---- */
+.header-principal {
+    /* TODO: Flexbox (logo esquerra, nav dreta) */
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-menu ul {
+    /* TODO: Flexbox (menú horitzontal) */
+    display: flex;
+    gap: 15px;
+}
+
+.nav-menu {
+    color: #ff6600;
+}
+/* ... */
+/* ---- 2. SECCIÓ HERO ---- */
+.hero-section {
+    /* TODO: Flexbox (centrat perfecte) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background: url(https://images.unsplash.com/photo-1674760726595-d12f5e45482a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FtcCUyMG5vdXxlbnwwfHwwfHx8MA%3D%3D) no-repeat center/cover;
+    color: #fff;
+}
+
+/* ... */
+/* ---- 3. SECCIÓ LLOCS (TARGETES) ---- */
+.graella-llocs {
+    /* TODO: Grid (3 columnes) */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.targeta {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1);
+}
+
+/* ... */
+/* ---- 4. SECCIÓ BARRIS ---- */
+.barris-container {
+    /* TODO: Flexbox (2 columnes) */
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.descripcio-barri {
+    flex: 1;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+}
+/* ... */
+/* ---- 5. FOOTER ---- */
+.footer-principal {
+    /* TODO: Flexbox (centrat) */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.graella-g
+
+/* ... */
+/* ---- 6. MEDIA QUERIES (RESPONSIVE INDEX) ---- */
+@media (max-width: 768px) {
+    /* TODO: Tauleta (Graella 2 col, Barris 1 col) */
+    { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    /* TODO: Mòbil (Header apilat, Graella 1 col) */
+    galeria-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- 7. NOVES REGLES PER A GALERIA.HTML ---- */
+/* TODO: L'ALUMNE HA D'AFEGIR AQUÍ ELS SEUS NOUS SELECTORS Ex: .galeria-grid, .galeria-item, etc. */
+/* ---- 8. NOVES REGLES PER A CONTACTE.HTML ---- */
+/* TODO: L'ALUMNE HA D'AFEGIR AQUÍ ELS SEUS NOUS SELECTORS Ex: .formulari-contacte, .formulari-contacte input, etc. */
+/* ---- 9. MEDIA QUERIES PER A NOVES PÀGINES ---- */
+/* TODO: Afegir aquí el responsive per a la galeria i el formulari. */
