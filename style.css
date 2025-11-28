@@ -2,118 +2,320 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Crucial for padding/borders not breaking layout */
 }
-body {
 
+body {
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     background-color: #f4f4f4;
+    line-height: 1.6;
 }
+
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease;
 }
+
 ul {
     list-style: none;
 }
 
-/* ... (Selectors buits per a index.html) ... */
+img {
+    max-width: 100%; /* Prevents images from overflowing on mobile */
+    display: block;
+}
+
 /* ---- 1. HEADER I NAVEGACIÓ ---- */
 .header-principal {
-    /* TODO: Flexbox (logo esquerra, nav dreta) */
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    padding: 10px 20px;
+    display: flex; /* Flexbox enabled */
+    justify-content: space-between; /* Logo left, Nav right */
+    align-items: center; /* Vertically centered */
+    padding: 15px 5%;
     background-color: #333;
     color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .nav-menu ul {
-    /* TODO: Flexbox (menú horitzontal) */
-    display: flex;
-    gap: 15px;
+    display: flex; /* Horizontal menu */
+    gap: 20px; /* Space between links */
 }
 
-.nav-menu {
-    color: #ff6600;
+.nav-menu a:hover {
+    color: #ff6600; /* Hover effect */
 }
-/* ... */
+
 /* ---- 2. SECCIÓ HERO ---- */
 .hero-section {
-    /* TODO: Flexbox (centrat perfecte) */
-    display: flex;
+    display: flex; /* Flexbox for centering */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-    background: url(https://images.unsplash.com/photo-1674760726595-d12f5e45482a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FtcCUyMG5vdXxlbnwwfHwwfHx8MA%3D%3D) no-repeat center/cover;
+    height: 60vh; /* 60% of viewport height */
+    text-align: center;
     color: #fff;
+    
+    /* Background with overlay to make text readable */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('picBarcelona_cover_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* ... */
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    /* Keeping your animation */
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fffa; color: #fff; }
+    100% { text-shadow: 0 0 20px #ffd700; color: #ffdf00; }
+}
+
 /* ---- 3. SECCIÓ LLOCS (TARGETES) ---- */
+.seccio-llocs, .seccio-barris {
+    padding: 40px 5%; /* General padding for sections */
+}
+
+.seccio-llocs h2, .seccio-barris h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2rem;
+}
+
 .graella-llocs {
-    /* TODO: Grid (3 columnes) */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 2rem;
+    display: grid; /* Grid enabled */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 2rem;
 }
 
 .targeta {
     background-color: #fff;
-    padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
 }
 
-/* ... */
+.targeta:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.targeta img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.targeta h3, .targeta p {
+    padding: 0 15px;
+}
+
+.targeta h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.targeta p {
+    padding-bottom: 15px;
+    color: #666;
+}
+
 /* ---- 4. SECCIÓ BARRIS ---- */
 .barris-container {
-    /* TODO: Flexbox (2 columnes) */
-    display: flex;
+    display: flex; /* Flexbox enabled */
     gap: 2rem;
-    padding: 2rem;
+    justify-content: center;
 }
 
 .descripcio-barri {
-    flex: 1;
+    flex: 1; /* Both items take equal width */
     background-color: #fff;
-    padding: 1rem;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
-/* ... */
+
+.descripcio-barri img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.descripcio-barri h3, .descripcio-barri p {
+    padding: 15px;
+}
+
 /* ---- 5. FOOTER ---- */
 .footer-principal {
-    /* TODO: Flexbox (centrat) */
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    justify-content: center;
+    padding: 2rem;
     background-color: #333;
     color: #fff;
+    margin-top: auto;
 }
 
-.graella-g
-
-/* ... */
 /* ---- 6. MEDIA QUERIES (RESPONSIVE INDEX) ---- */
 @media (max-width: 768px) {
-    /* TODO: Tauleta (Graella 2 col, Barris 1 col) */
-    { grid-template-columns: repeat(2, 1fr); }
+    /* TABLET */
+    .graella-llocs {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+    
+    .barris-container {
+        flex-direction: column; /* Stack vertically */
+    }
 }
 
 @media (max-width: 480px) {
-    /* TODO: Mòbil (Header apilat, Graella 1 col) */
-    galeria-grid { grid-template-columns: 1fr; }
+    /* MOBILE */
+    .header-principal {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu ul {
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .graella-llocs {
+        grid-template-columns: 1fr; /* 1 column */
+    }
 }
 
 /* ---- 7. NOVES REGLES PER A GALERIA.HTML ---- */
-/* TODO: L'ALUMNE HA D'AFEGIR AQUÍ ELS SEUS NOUS SELECTORS Ex: .galeria-grid, .galeria-item, etc. */
+.galeria-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.galeria-section h2 {
+    margin-bottom: 2rem;
+}
+
+.galeria-grid {
+    display: grid;
+    /* Auto-fit creates as many columns as fit, min 250px wide */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 /* ---- 8. NOVES REGLES PER A CONTACTE.HTML ---- */
-/* TODO: L'ALUMNE HA D'AFEGIR AQUÍ ELS SEUS NOUS SELECTORS Ex: .formulari-contacte, .formulari-contacte input, etc. */
+.contact-section {
+    max-width: 600px;
+    margin: 50px auto; /* Centered horizontally */
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h1 {
+    text-align: center;
+    color: #333;
+}
+
+.contact-section p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-control input,
+.form-control textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%; /* Ensure full width on mobile */
+    font-family: inherit;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline: none;
+    border-color: #0077cc;
+}
+
+.btn-submit {
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #005fa3;
+}
+
 /* ---- 9. MEDIA QUERIES PER A NOVES PÀGINES ---- */
-/* TODO: Afegir aquí el responsive per a la galeria i el formulari. */
+
+@media (max-width: 600px) {
+    /* Responsive rules for Gallery & Contact */
+    
+    /* Force gallery to 1 column on very small screens if auto-fit fails */
+    .galeria-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Adjust contact form padding for mobile */
+    .contact-section {
+        margin: 20px;
+        padding: 20px;
+    }
+}
